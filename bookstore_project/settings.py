@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'books.apps.BooksConfig',#local
     'pages.apps.PagesConfig',#local
     'users.apps.UsersConfig',#local
     'crispy_forms',#third party

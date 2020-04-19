@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'orders.apps.OrdersConfig',#local
     'books.apps.BooksConfig',#local
     'pages.apps.PagesConfig',#local
     'users.apps.UsersConfig',#local
@@ -149,3 +150,5 @@ EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL='admin@djangobookstore.com'
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+STRIPE_TEST_PUBLISHABLE_KEY=os.getenv("STRIPE_TEST_PUBLISHABLE_KEY")
+STRIPE_TEST_SECRET_KEY=os.getenv("STRIPE_TEST_SECRET_KEY")

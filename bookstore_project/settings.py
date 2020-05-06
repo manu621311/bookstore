@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'allauth',#3rd party
     'allauth.account',#3rd party
     'debug_toolbar',#3rd party
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -52,6 +53,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware', # new 
     'django.middleware.cache.UpdateCacheMiddleware', # new 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -178,5 +180,10 @@ if ENVIRONMENT=='production':
     SESSION_COOKIE_SECURE = True # new 
     CSRF_COOKIE_SECURE = True # new
     SECURE_CONTENT_TYPE_NOSNIFF = True # new
+
+import dj_database_url 
+db_from_env = dj_database_url.config(conn_max_age=500) 
+DATABASES['default'].update(db_from_env)
+
 
 

@@ -3,16 +3,22 @@
 {% block title %}Home{% endblock title %}
 {% block content %} 
 <h1>Homepage</h1> 
-<form class="form-inline mt-2 mt-md-0" action="{%url 'search_results'%}" method="get">
-  <input name="q" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="search">
+<form class="form-inline mt-2 mt-md-0" action="{%url 'search_results'%}" method="get" style="float: right;margin-bottom: 10px;">
+  <h5 style="margin-right: 5px;">Search for books:</h5>
+  <input name="q" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="search" >
 </form>
+<div>
 <img class="bookcover" src="{%static 'images/hamlet.jpg'%}">
+<img class="bookcover" src="{%static 'images/romeoandjuliet.jpg'%}">
+<img class="bookcover" src="{%static 'images/great.jpg'%}">
+</div>
+<p style="margin-top: 20px;">and many more.....</p>
 <br>
 {%if user.is_authenticated %}
-  Hi {{user.email}}!
+  Hi {{user.email}}
   <p><a href="{%url 'account_logout'%}">Log Out</a></p>
   {%else%}
-  <p>you are not logged in </p>
+  <p>You are not logged in,Please login to see the entire list.</p>
   <a href="{%url 'account_login' %}">Login</a>
   <a href="{%url 'account_signup'%}">Signup</a>
   {%endif%}

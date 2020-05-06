@@ -6,6 +6,7 @@ import uuid
 # Create your models here.
 class Book(models.Model):
     id=models.UUIDField(
+        db_index=True,
         primary_key=True,
         default=uuid.uuid4,
         editable=False

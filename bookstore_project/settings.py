@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['peaceful-retreat-10295.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -180,6 +180,7 @@ if ENVIRONMENT=='production':
     SESSION_COOKIE_SECURE = True # new 
     CSRF_COOKIE_SECURE = True # new
     SECURE_CONTENT_TYPE_NOSNIFF = True # new
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 import dj_database_url 
 db_from_env = dj_database_url.config(conn_max_age=500) 
